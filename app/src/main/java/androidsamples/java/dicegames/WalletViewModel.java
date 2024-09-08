@@ -1,14 +1,23 @@
 package androidsamples.java.dicegames;
 
+import android.util.Log;
+
 import androidx.lifecycle.ViewModel;
 
 public class WalletViewModel extends ViewModel {
+
+  private static final String TAG = "WalletViewModel";
+  private static final int WIN_VAL = 6;
+  private static final int INCREMENT = 5;
+  private int mBal;
+  private Die die;
 
   /**
    * The no argument constructor.
    */
   public WalletViewModel() {
-    // TODO implement method
+    mBal = 0;
+    die = new Die6();
   }
 
   /**
@@ -17,14 +26,20 @@ public class WalletViewModel extends ViewModel {
    */
   public int balance() {
     // TODO implement method
-    return 0;
+    return mBal;
   }
 
   /**
    * Rolls the {@link Die} in the wallet and implements the changes accordingly.
    */
   public void rollDie() {
-    // TODO implement method
+    die.roll();
+    Log.d(TAG, "die = "+die.value());
+    if(die.value() == WIN_VAL){
+      mBal += INCREMENT;
+      Log.d(TAG, "new balance = " + mBal);
+    }
+
   }
 
   /**
@@ -33,7 +48,7 @@ public class WalletViewModel extends ViewModel {
    */
   public int dieValue() {
     // TODO implement method
-    return 0;
+    return die.value();
   }
 
   /**
@@ -79,5 +94,10 @@ public class WalletViewModel extends ViewModel {
   public int previousRoll() {
     // TODO implement method
     return 0;
+  }
+  @Override
+  protected void onCleared(){
+    super.onCleared();
+    Log.d(TAG, "onCleared");
   }
 }

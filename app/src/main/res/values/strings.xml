@@ -1,3 +1,4 @@
 <resources>
   <string name="app_name">Dice Games</string>
+    <string name="wallet_info">Click the die to roll.\nYou earn 5 coins every time you roll a six!</string>
 </resources>
