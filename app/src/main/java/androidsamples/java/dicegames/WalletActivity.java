@@ -16,7 +16,7 @@ public class WalletActivity extends AppCompatActivity {
 
   private TextView mTxt_Bal;
   private Button Btn;
-  private String TAG = "WalletActivity";
+  private final String TAG = "WalletActivity";
 
   private WalletViewModel mWalletVM;
 
