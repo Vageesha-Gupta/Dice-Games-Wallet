@@ -1,7 +1,4 @@
 package androidsamples.java.dicegames;
-
-import static androidsamples.java.dicegames.R.id.Btn;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
