@@ -14,7 +14,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 public class WalletActivity extends AppCompatActivity {
 
-
   private TextView mTxt_Bal;
   private Button Btn;
   private String TAG = "WalletActivity";
@@ -41,7 +40,6 @@ public class WalletActivity extends AppCompatActivity {
       mTxt_Bal.setText(Integer.toString(mWalletVM.balance()));
       Btn.setText(Integer.toString(mWalletVM.dieValue()));
     }
-
 
 
   }

@@ -2,4 +2,5 @@
 <resources>
     <item name="txt_bal" type="id">Coins</item>
     <item name="Btn" type="id">button</item>
+    <item name="btn_die" type="id">btn</item>
 </resources>

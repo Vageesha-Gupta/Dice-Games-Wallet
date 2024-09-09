@@ -5,22 +5,98 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WalletActivity">
+
+  <!-- Total Rolls Text -->
   <TextView
-      android:layout_width="match_parent"
+      android:id="@+id/txt_bal"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@string/wallet_info"
-      app:layout_constraintBottom_toBottomOf="parent"
+      android:layout_marginTop="64dp"
+      android:padding="16dp"
+      android:text="Coins: "
+      android:textSize="18sp"
       app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.498"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/single_sixesRolledText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="64dp"
+      android:padding="16dp"
+      android:text="Coins: "
+      android:textSize="18sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.498"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
 
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:gravity="center"
-      android:orientation="vertical"
-      tools:context = ".WalletActivity"></LinearLayout>
+  <TextView
+      android:id="@+id/totalRollsText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="188dp"
+      android:padding="16dp"
+      android:text="Total Rolls: 0"
+      android:textSize="18sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.498"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/totalRollsText" />
+
+  <TextView
+      android:id="@+id/double_sixesRolledText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="104dp"
+      android:padding="16dp"
+      android:text="Sixes Rolled: 0"
+      android:textSize="18sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/double_sixesRolledText" />
+
+  <Button
+      android:id="@+id/btn_die"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="220dp"
+      android:contentDescription="Roll the dice"
+      android:padding="16dp"
+      android:text="Roll Dice"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.946"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/btn_die" />
+
+  <TextView
+      android:id="@+id/previousRollText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="232dp"
+      android:padding="16dp"
+      android:text="Previous Roll: -"
+      android:textSize="18sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.45"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/previousRollText" />
+
+  <TextView
+      android:id="@+id/double_othersRolledText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="104dp"
+      android:padding="16dp"
+      android:text="Double others: 0"
+      android:textSize="18sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/double_othersRolledText" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
