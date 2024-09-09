@@ -31,11 +31,17 @@ public class WalletActivity extends AppCompatActivity {
     mTxt_Bal.setText(Integer.toString(mWalletVM.balance()));
     Btn.setText(Integer.toString(mWalletVM.dieValue()));
 
-    Btn.setOnClickListener(new View.onClickListener()){
-      public void onClick(View view){
+//    Btn.setOnClickListener(new View.OnClickListener()){
+//      public void onClick(View view){
+//        mWalletVM.rollDie();
+//      }
+//    }
+    Btn.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
         mWalletVM.rollDie();
       }
-    }
+    });
     private void updateUI(){
       mTxt_Bal.setText(Integer.toString(mWalletVM.balance()));
       Btn.setText(Integer.toString(mWalletVM.dieValue()));
