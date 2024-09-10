@@ -6,115 +6,156 @@
     android:orientation="horizontal"
     android:padding="16dp"
     android:gravity="center"
-    android:background="@color/colorBackground">
+    android:background="@color/colorWhite">
 
-
-    <!-- Info and Instructions -->
-    <TextView
-        android:id="@+id/txt_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Click the die to roll.\nYou earn 5 coins every time you roll a six!"
-        android:textAlignment="center"
-        android:layout_marginTop="16dp" />
-
-    <!-- Coins Display -->
+    <!-- Left side: Text -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="8dp">
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingEnd="16dp">
 
+        <!-- Info and Instructions -->
         <TextView
+            android:id="@+id/txt_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Coins"
-            android:textStyle="bold"
-            android:layout_marginEnd="8dp" />
+            android:text="@string/wallet_info"
+            android:textAlignment="center"
+            android:layout_marginTop="16dp" />
 
-        <TextView
-            android:id="@+id/txt_balance"
+        <!-- Coins Display -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10" />
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/coins"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/txt_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/zero" />
+        </LinearLayout>
+
+        <!-- Previous Roll -->
+        <LinearLayout
+            android:id="@+id/prev_roll_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/previous_roll"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/txt_previous_roll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/zero" />
+        </LinearLayout>
+
+        <!-- Sixes Rolled & Total Rolls (Initially hidden) -->
+        <LinearLayout
+            android:id="@+id/layout_rolls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sixes_rolled"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/txt_sixes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/zero"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total_rolls"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/txt_total_rolls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/zero" />
+        </LinearLayout>
+
+        <!-- Double Sixes and Double Others (Initially hidden) -->
+        <LinearLayout
+            android:id="@+id/layout_double_sixes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/double_sixes"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/txt_double_sixes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/zero" />
+
+            <!-- Added space between double_sixes and double_others -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  " /> <!-- Add space -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/double_others"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/txt_double_others"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/zero" />
+        </LinearLayout>
     </LinearLayout>
 
-    <!-- Die Button -->
+    <!-- Right side: Die Button -->
     <Button
         android:id="@+id/btn_die"
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:background="@color/purple_500"
-        android:text="6"
+        android:text="@string/numOnDie"
         android:textSize="72sp"
         android:textColor="@color/colorWhite"
         android:layout_marginTop="32dp" />
-
-    <!-- Sixes Rolled & Total Rolls (Initially hidden) -->
-    <LinearLayout
-        android:id="@+id/layout_rolls"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        android:layout_marginTop="16dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sixes Rolled"
-            android:layout_marginEnd="8dp" />
-
-        <TextView
-            android:id="@+id/txt_sixes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:layout_marginEnd="16dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total Dice Rolls"
-            android:layout_marginEnd="8dp" />
-
-        <TextView
-            android:id="@+id/txt_total_rolls"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0" />
-    </LinearLayout>
-
-    <!-- Double Sixes (Initially hidden) -->
-    <LinearLayout
-        android:id="@+id/layout_double_sixes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        android:layout_marginTop="8dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Double Sixes"
-            android:layout_marginEnd="8dp" />
-
-        <TextView
-            android:id="@+id/txt_double_sixes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0" />
-    </LinearLayout>
-
-    <!-- Previous Roll -->
-    <TextView
-        android:id="@+id/txt_previous_roll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Previous Roll: 0"
-        android:visibility="gone"
-        android:layout_marginTop="8dp" />
 
 </LinearLayout>
