@@ -1,7 +1,14 @@
+<!--<resources>-->
+<!--  <string name="app_name">Dice Games</string>-->
+<!--  <string name="wallet_info">Click the die to roll.\nYou earn 5 coins every time you roll a six!</string>-->
+<!--  <string name="zero">0</string>-->
+<!--  <string name="coins">Coins</string>-->
+
+<!--</resources>-->
+
 <resources>
   <string name="app_name">Dice Games</string>
-  <string name="wallet_info">Click the die to roll.\nYou earn 5 coins every time you roll a six!</string>
+  <string name="wallet_info">Click the die to roll.&#10;You earn 5 coins every time you roll a six!</string>
   <string name="zero">0</string>
   <string name="coins">Coins</string>
-
 </resources>

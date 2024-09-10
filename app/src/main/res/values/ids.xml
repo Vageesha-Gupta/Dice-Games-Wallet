@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="txt_bal" type="id">Coins</item>
-    <item name="Btn" type="id">button</item>
-    <item name="btn_die" type="id">btn</item>
+    <item name="txt_bal" type="id"/>
+    <item name="Btn" type="id"/>
+    <item name="btn_die" type="id"/>
 </resources>
