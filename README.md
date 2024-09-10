@@ -1,7 +1,7 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/R_7cjhEg)
 # A2-PersistUI
 
-Project Name
+# Project Name
 Dice Games - Persisting the UI state
 
 Student Details
@@ -9,8 +9,6 @@ Student Details
 |----------|----------|----------|
 | Vageesha Gupta | 2022A7PS1107G | f20221107@goa.bits-pilani.ac.in |
 | Priya Rathi | 2022A7PS1096G | f20221096@goa.bits-pilani.ac.in |
-
-# Dice Games App
 
 ## Description of App
 **Dice Games** is an engaging app for simulating rolls of a six-sided die while tracking various gameplay metrics. As users roll the die, their balance is dynamically updated based on the results:
