@@ -7,8 +7,26 @@
 <!--</resources>-->
 
 <resources>
+  <!-- App Name -->
   <string name="app_name">Dice Games</string>
+
+  <!-- Instructions -->
   <string name="wallet_info">Click the die to roll.&#10;You earn 5 coins every time you roll a six!</string>
+
+  <!-- Labels -->
   <string name="zero">0</string>
   <string name="coins">Coins</string>
+  <string name="win_rate">Win Rate</string>
+  <string name="total_rolls">Total Dice Rolls</string>
+  <string name="sixes_rolled">Sixes Rolled</string>
+  <string name="previous_roll">Previous Roll</string>
+  <string name="double_sixes">Double Sixes</string>
+  <string name="double_others">Double Others</string>
+
+  <!-- Buttons -->
+  <string name="congratulations">Congratulations!</string>
+
+  <!-- Notifications -->
+  <string name="rolled_six">You rolled a 6! You earned 5 coins!</string>
+  <string name="roll_other_number">You rolled %d. Try again!</string>
 </resources>
