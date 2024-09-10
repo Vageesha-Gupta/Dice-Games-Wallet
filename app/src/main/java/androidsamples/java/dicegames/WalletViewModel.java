@@ -91,7 +91,7 @@ public class WalletViewModel extends ViewModel {
       } else {
         numLoses = 1; // Start tracking losses
       }
-      numWins = 0; // Reset wins since it's not a six
+//      numWins = 0; // Reset wins since it's not a six
     }
 
     Log.d(TAG, "New balance = " + mBal);
