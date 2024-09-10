@@ -1,6 +1,8 @@
 package androidsamples.java.dicegames;
 
 import android.util.Log;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import androidx.lifecycle.ViewModel;
 
@@ -20,6 +22,9 @@ public class WalletViewModel extends ViewModel {
   private Die die;
   private int dblSixes;
   private int dblOthers;
+  //test toast
+  private MutableLiveData<Boolean> sixRolledLiveData = new MutableLiveData<>();
+  //test end
   public WalletViewModel() {
     mBal = 0;
     totalRolls = 0;
@@ -63,6 +68,12 @@ public class WalletViewModel extends ViewModel {
     return die.value();
   }
 
+  public LiveData<Boolean> getSixRolledLiveData() {
+    return sixRolledLiveData;
+  }
+
+
+
   public void rollDie() {
     // Save the current roll value before updating it
     int currentRoll = die.value();
@@ -89,6 +100,7 @@ public class WalletViewModel extends ViewModel {
       }
       numWins++;
       numLosses = 0; // Reset losses since we rolled a six
+      sixRolledLiveData.setValue(true);
     } else {
       if (previousRoll != WIN_VAL && previousRoll != -1 && currentRoll==previousRoll) {
         // Two consecutive non-sixes
@@ -96,7 +108,9 @@ public class WalletViewModel extends ViewModel {
         dblOthers++;
         numLosses++;
       }
+
 //      numWins = 0; // Reset wins since it's not a six
+      sixRolledLiveData.setValue(false);
     }
 
     Log.d(TAG, "New balance = " + mBal);
