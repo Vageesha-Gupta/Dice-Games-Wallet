@@ -102,7 +102,7 @@ public class WalletViewModel extends ViewModel {
       numLosses = 0; // Reset losses since we rolled a six
       sixRolledLiveData.setValue(true);
     } else {
-      if (previousRoll != WIN_VAL && previousRoll != -1 && currentRoll==previousRoll) {
+      if (currentRoll != WIN_VAL && previousRoll != -1 && currentRoll==previousRoll) {
         // Two consecutive non-sixes
         mBal -= DECREMENT;
         dblOthers++;
