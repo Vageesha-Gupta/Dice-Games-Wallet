@@ -5,11 +5,11 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.Before;
 import org.mockito.Mock;
-import org.junit.runner.RunWith;
 import org.mockito.MockitoAnnotations;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
+
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
+
 
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
@@ -21,8 +21,7 @@ import android.util.Log;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-@RunWith(PowerMockRunner.class)
-@PrepareForTest({Log.class})
+@RunWith(RobolectricTestRunner.class)
 public class WalletTest {
   private WalletViewModel viewModel;
   Die die;
@@ -32,7 +31,6 @@ public class WalletTest {
   @Before
   public void setUp() {
     MockitoAnnotations.openMocks(this);
-    PowerMockito.mockStatic(Log.class);
     viewModel = new WalletViewModel();
     viewModel.die = mockDie;
   }
