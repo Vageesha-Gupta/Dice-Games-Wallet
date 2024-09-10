@@ -41,11 +41,13 @@ public class WalletViewModel extends ViewModel {
   }
 
   public int doubleSixes() {
-    return (numWins > 1) ? 1 : 0; // Just a sample logic for two consecutive sixes
+    // Return 1 if there were two consecutive sixes; otherwise, return 0
+    return (prevRoll == WIN_VAL && die.value() == WIN_VAL) ? 1 : 0;
   }
 
   public int doubleOthers() {
-    return (numLoses > 1) ? 1 : 0; // Sample logic for two consecutive non-sixes
+    // Return 1 if there were two consecutive non-sixes; otherwise, return 0
+    return (prevRoll != WIN_VAL && die.value() != WIN_VAL && prevRoll != -1) ? 1 : 0;
   }
 
   public int previousRoll() {
@@ -57,15 +59,22 @@ public class WalletViewModel extends ViewModel {
   }
 
   public void rollDie() {
+    // Save the current roll value before updating it
+    int currentRoll = die.value();
+
+    // Update the die and total rolls
     die.roll();
     totalRolls++;
 
-    int currentRoll = die.value();
     Log.d(TAG, "Die rolled = " + currentRoll);
+
+    // Update previous roll before changing it
+    int previousRoll = prevRoll; // Save the previous roll
+    prevRoll = currentRoll; // Update previous roll to the current one
 
     // Check for wins and losses based on consecutive rolls
     if (currentRoll == WIN_VAL) {
-      if (prevRoll == WIN_VAL) {
+      if (previousRoll == WIN_VAL) {
         // Two consecutive sixes
         mBal += INCREMENT_IF_CONSECUTIVE_SIXES;
       } else {
@@ -75,7 +84,7 @@ public class WalletViewModel extends ViewModel {
       numWins++;
       numLoses = 0; // Reset loses since we rolled a six
     } else {
-      if (prevRoll != WIN_VAL && prevRoll != -1) {
+      if (previousRoll != WIN_VAL && previousRoll != -1) {
         // Two consecutive non-sixes
         mBal -= DECREMENT;
         numLoses++;
@@ -85,11 +94,10 @@ public class WalletViewModel extends ViewModel {
       numWins = 0; // Reset wins since it's not a six
     }
 
-    // Update previous roll
-    prevRoll = currentRoll;
-
     Log.d(TAG, "New balance = " + mBal);
   }
+
+
 
   @Override
   protected void onCleared(){

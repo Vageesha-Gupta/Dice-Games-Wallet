@@ -11,12 +11,13 @@
   <string name="app_name">Dice Games</string>
 
   <!-- Instructions -->
-  <string name="wallet_info">Click the die to roll.&#10;You earn 5 coins every time you roll a six!</string>
+  <string name="wallet_info">Click the die to roll.\nYou earn 5 coins every time you roll a six!\nIf you roll two sixes in a row, you will earn 10 coins!\nBut if you roll any other number in a row, you will lose 5 coins!</string>
 
   <!-- Labels -->
   <string name="zero">0</string>
   <string name="coins">Coins</string>
-  <string name="win_rate">Win Rate</string>
+<!--  <string name="win_rate">Win Rate</string>-->
+  <string name="numOnDie"> Play</string>
   <string name="total_rolls">Total Dice Rolls</string>
   <string name="sixes_rolled">Sixes Rolled</string>
   <string name="previous_roll">Previous Roll</string>
@@ -27,6 +28,6 @@
   <string name="congratulations">Congratulations!</string>
 
   <!-- Notifications -->
-  <string name="rolled_six">You rolled a 6! You earned 5 coins!</string>
-  <string name="roll_other_number">You rolled %d. Try again!</string>
+<!--  <string name="rolled_six">You rolled a 6! You earned 5 coins!</string>-->
+<!--  <string name="roll_other_number">You rolled %d. Try again!</string>-->
 </resources>
