@@ -19,7 +19,7 @@ public class WalletViewModel extends ViewModel {
   private int numWins;
   private int numLosses;
   private int prevRoll;
-  private Die die;
+  Die die;
   private int dblSixes;
   private int dblOthers;
   //test toast
