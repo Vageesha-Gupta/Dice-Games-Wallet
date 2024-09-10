@@ -17,7 +17,7 @@
   <string name="zero">0</string>
   <string name="coins">Coins</string>
 <!--  <string name="win_rate">Win Rate</string>-->
-  <string name="numOnDie"> Play</string>
+  <string name="numOnDie"> 0</string>
   <string name="total_rolls">Total Dice Rolls</string>
   <string name="sixes_rolled">Sixes Rolled</string>
   <string name="previous_roll">Previous Roll</string>
