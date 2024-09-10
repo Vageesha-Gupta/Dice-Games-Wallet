@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
+import android.widget.Toast;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 
 import androidx.lifecycle.ViewModelProvider;
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,6 +50,15 @@ public class WalletActivity extends AppCompatActivity {
 
     // Update UI with the initial state from ViewModel
     updateUI();
+    mWalletVM.getSixRolledLiveData().observe(this, new Observer<Boolean>() {
+      @Override
+      public void onChanged(Boolean sixRolled) {
+        if (Boolean.TRUE.equals(sixRolled)) {
+          Toast.makeText(WalletActivity.this, "Congratulations!", Toast.LENGTH_SHORT).show();
+        }
+      }
+    });
+
 
     // Set onClick listener to roll die
     mBtnDie.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +70,7 @@ public class WalletActivity extends AppCompatActivity {
         // Update the UI after each roll
         updateUI();
       }
+
     });
   }
 
