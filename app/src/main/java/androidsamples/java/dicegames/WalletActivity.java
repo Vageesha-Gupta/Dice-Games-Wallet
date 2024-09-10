@@ -93,10 +93,10 @@ public class WalletActivity extends AppCompatActivity {
     }
     if ((mWalletVM.doubleSixes() > 0 || mWalletVM.doubleOthers()>0) && mLayoutDoubleSixes.getVisibility() == View.GONE) {
       mLayoutDoubleSixes.setVisibility(View.VISIBLE);
-      mTxtDblSixes.setText(Integer.toString((mWalletVM.doubleSixes())));
-      mTxtDblOthers.setText(Integer.toString((mWalletVM.doubleOthers())));
-    }
 
+    }
+    mTxtDblSixes.setText(Integer.toString((mWalletVM.doubleSixes())));
+    mTxtDblOthers.setText(Integer.toString((mWalletVM.doubleOthers())));
     // Ensure previous roll text visibility
     if (mWalletVM.totalRolls()>1 && mWalletVM.previousRoll()!=-1 && mPrevRollLayout.getVisibility() == View.GONE) {
       mPrevRollLayout.setVisibility(View.VISIBLE);
