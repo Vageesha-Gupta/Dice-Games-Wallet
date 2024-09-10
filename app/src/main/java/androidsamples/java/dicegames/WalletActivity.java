@@ -1,115 +1,86 @@
 package androidsamples.java.dicegames;
+
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class WalletActivity extends AppCompatActivity {
-  private int mBalance;
-  private Die mDie;
+
+  private WalletViewModel mWalletVM;
   private TextView mTxt_Bal;
   private Button mBtnDie;
-//  private final String TAG = "WalletActivity";
-  private final int WIN_VALUE=6;
-  private int numWins=0;
-  private int numLoses=0;
-  private final int INCREMENT_NORMAL=5;
-  private final int INCREMENT_IF_CONSECUTIVE_SIXES=10;
-  private final int DECREMENT=5;
 
-
-//  private WalletViewModel mWalletVM;
+  // Additional UI elements
+  private TextView mTxtSixes;
+  private TextView mTxtTotalRolls;
+  private TextView mTxtPreviousRoll;
+  private View mLayoutRolls;
+  private View mLayoutDoubleSixes;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_wallet);
-    mDie=new Die6();
+
+    // Initialize ViewModel
+    mWalletVM = new ViewModelProvider(this).get(WalletViewModel.class);
+
+    // Initialize UI elements
     mTxt_Bal = findViewById(R.id.txt_balance);
     mBtnDie = findViewById(R.id.btn_die);
+    mTxtSixes = findViewById(R.id.txt_sixes);
+    mTxtTotalRolls = findViewById(R.id.txt_total_rolls);
+    mTxtPreviousRoll = findViewById(R.id.txt_previous_roll);
+    mLayoutRolls = findViewById(R.id.layout_rolls);
+    mLayoutDoubleSixes = findViewById(R.id.layout_double_sixes);
 
-//    mWalletVM = new ViewModelProvider(this).get(WalletViewModel.class);
-//    mTxt_Bal.setText(Integer.toString(mWalletVM.balance()));
-//    mBtnDie.setText(Integer.toString(mWalletVM.dieValue()));
+    // Update UI with the initial state from ViewModel
+    updateUI();
 
-//    Btn.setOnClickListener(new View.OnClickListener()){
-//      public void onClick(View view){
-//        mWalletVM.rollDie();
-//      }
-//    }
+    // Set onClick listener to roll die
     mBtnDie.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        //roll die
-        mDie.roll();
-        //add coins
-        if (mDie.value() == WIN_VALUE && numWins == 0) {
-          numLoses = 0;
-          numWins++;
-          mBalance += INCREMENT_NORMAL;
-        } else if (mDie.value() == WIN_VALUE && numWins > 0) {
-          numWins++;
-          mBalance += INCREMENT_IF_CONSECUTIVE_SIXES;
-        } else if (mDie.value() != WIN_VALUE && numLoses == 0) {
-          //if not a six
-          numWins = 0;
-          numLoses++;
-        } else if (mDie.value() != WIN_VALUE && numLoses > 0) {
-          //if not a six consecutively
-          mBalance -= DECREMENT;
-          numLoses++;
-        }
-        //update ui
+        // Delegate dice roll logic to the ViewModel
+        mWalletVM.rollDie();
+
+        // Update the UI after each roll
         updateUI();
       }
-      //
     });
-
   }
 
+  // Updates the UI with the ViewModel's current state
   private void updateUI() {
-    mTxt_Bal.setText(Integer.toString(mBalance));
-    mBtnDie.setText(Integer.toString(mDie.value()));
+    // Update balance and die button text
+    mTxt_Bal.setText(Integer.toString(mWalletVM.balance()));
+    mBtnDie.setText(Integer.toString(mWalletVM.dieValue()));
+
+    // Show the hidden layouts if they are not visible
+    if (mLayoutRolls.getVisibility() == View.GONE) {
+      mLayoutRolls.setVisibility(View.VISIBLE);
+    }
+    if (mWalletVM.doubleSixes() > 0 && mLayoutDoubleSixes.getVisibility() == View.GONE) {
+      mLayoutDoubleSixes.setVisibility(View.VISIBLE);
+    }
+
+    // Update sixes rolled, total rolls, and previous roll
+    mTxtSixes.setText(Integer.toString(mWalletVM.singleSixes()));
+    mTxtTotalRolls.setText(Integer.toString(mWalletVM.totalRolls()));
+    mTxtPreviousRoll.setText("Previous Roll: " + mWalletVM.previousRoll());
+
+    // Show previous roll text if it was hidden
+    if (mTxtPreviousRoll.getVisibility() == View.GONE) {
+      mTxtPreviousRoll.setVisibility(View.VISIBLE);
+    }
   }
-
-//  @Override
-//  protected void onStart(){
-//    super.onStart();
-//    Log.d(TAG,"onStart");
-//  }
-//  @Override
-//  protected void onResume(){
-//    super.onResume();
-//    Log.d(TAG,"onResume");
-//  }
-//  @Override
-//  protected void onStop(){
-//    super.onStop();
-//    Log.d(TAG,"onStop");
-//  }
-//  @Override
-//  protected void onDestroy(){
-//    super.onDestroy();
-//    Log.d(TAG,"onDestroy");
-//  }
-//  @Override
-//  protected void onPause(){
-//    super.onPause();
-//    Log.d(TAG,"onPause");
-//  }
-
-//  protected void onSaveInstanceState(@NonNull Bundle outState) {
-//
-//    super.onSaveInstanceState(outState);
-//    Log.d(TAG,"onSaveInstanceState");
-//    outState.putInt(KEY_BALANCE, mBal);
-//    outState.putInt(KEY_DIE_VAL, die.value());
-//    Log.d(TAG, "Saved: balance = " + mBal+",die=" + die.value());
-//  }
-
 }
+
+
+
+
+

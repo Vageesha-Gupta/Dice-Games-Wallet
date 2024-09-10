@@ -8,15 +8,6 @@
     android:gravity="center"
     android:background="@color/colorBackground">
 
-    <!-- App Header -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DiceGames"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimary" />
-
     <!-- Info and Instructions -->
     <TextView
         android:id="@+id/txt_info"
