@@ -10,32 +10,70 @@ Student Details
 | Vageesha Gupta | 2022A7PS1107G | f20221107@goa.bits-pilani.ac.in |
 | Priya Rathi | 2022A7PS1096G | f20221096@goa.bits-pilani.ac.in |
 
-Description of App
-The Dice Games is an engaging app for simulating rolls of a six-sided die while tracking various gameplay metrics. As users roll the die, their balance is dynamically updated based on the results. Rolling a six awards 5 coins, and consecutive sixes provide an additional bonus of 10 coins. Conversely, rolling the same non-six number twice in a row results in a deduction of 5 coins. The app also monitors and displays important statistics, including the total number of dice rolls, the frequency of rolling a six, and the value of the previous roll. Users receive immediate feedback through a congratulatory toast whenever a six is rolled. The app is designed to accommodate both portrait and landscape orientations, ensuring a responsive and user-friendly interface across different device orientations.
+# Dice Games App
 
-Implementation
-To implement the Dice Games app, we began by designing the user interface (UI) for both portrait and landscape orientations. The portrait layout was created to display the textview for game rules at the top, the balance,the dice value, and the roll statistics. For landscape orientation, a separate XML layout was developed to ensure that the UI elements are arranged in a way that optimizes visibility and usability in landscape mode.Then, we developed the WalletViewModel, which manages and persists the application's state. This ViewModel tracks critical information such as the user's balance, the total number of dice rolls, and the frequency of rolling a six. By utilizing LiveData, the ViewModel ensures that these metrics are updated in real-time and retained across configuration changes, such as screen rotations.In the WalletActivity, we integrated the ViewModel to handle user interactions and display updates. A toast notification was added to congratulate the user whenever a six is rolled, leveraging LiveData from the ViewModel to trigger this feedback. Additionally, the UI was enhanced to present win rates and other statistics, including the total number of dice rolls and the count of sixes rolled. These statistics are managed by the ViewModel to maintain consistency and persistence through configuration changes, ensuring a reliable and continuous user experience.
+## Description of App
+**Dice Games** is an engaging app for simulating rolls of a six-sided die while tracking various gameplay metrics. As users roll the die, their balance is dynamically updated based on the results:
+- **Roll a six**: Earn 5 coins.
+- **Consecutive sixes**: Earn a bonus of 10 coins.
+- **Same non-six number twice**: Deduct 5 coins.
 
-Testing
-Although we did not start with test-driven development (TDD), it proved to be extremely useful for debugging as the project advanced. We conducted extensive testing to ensure that the app functioned correctly and met all requirements. These tests validated that both the app’s logic and user interface worked well together, delivering accurate results and helpful error messages. No crashes have been detected till now.
+The app also tracks:
+- Total number of dice rolls.
+- Frequency of rolling a six.
+- Value of the previous roll.
 
-Additionally, throughout the development process, we utilized ChatGPT for assistance with coding issues and to better understand challenging concepts. This guidance was instrumental in solving problems and progressing confidently while keeping our solutions original.(chatgpt.com)
-We also took various code snippets from the slides provided in the Activity Lifespan module.(https://swaroopjoshi.in/courses/mobile-app-dev/07-activity-lifecycle/)
-We also consulted the stackoverflow.com and developer.android.com whenever we faced technical errors or challenges during development.
+Users receive immediate feedback through a congratulatory toast whenever a six is rolled. The app is designed for both portrait and landscape orientations, ensuring a responsive and user-friendly interface across all devices.
 
-Accessibility 
--Using TalkBack revealed that while basic navigation was functional, some UI elements needed better labeling for clarity. Specifically, the die button lacked a label, making it difficult for users relying on TalkBack to understand its purpose. On tapping it, the value of dice is read aloud instead of the label- die. Additionally, the text displaying roll statistics was too small, causing it to be missed often during navigation. 
--Accessibilty Scanner Suggestions:
-1)The Font of Dice Games in toolbar is in dip and could be specified in scaled pixels(sp).
-2) Since there is no content description, all views displaying roll statistics show an integer. As the initial value is zero for all, the Accessibility Scanner flags that multiple items have the same description.
-3)It suggested increasing the text contrast for the die.
-4) The die has a fixed size and scaleable text. It was suggested to allow text expansion.
+## Implementation
 
-Time Taken
-Approximately 20 hours were taken to complete the assignment.
+To implement the **Dice Games** app, we followed these steps:
 
-To what extent did you use pair programming on this assignment
-5(used pair programming thoroughly)
+1. **User Interface (UI)**: 
+   - Designed the UI for both **portrait** and **landscape** orientations.
+   - In **portrait mode**, the layout includes the balance, dice value, and roll statistics.
+   - In **landscape mode**, a separate XML layout ensures optimal visibility and usability.
 
-Rate this assignment in terms of difficulty
-5/10
+2. **ViewModel**:
+   - Developed the `WalletViewModel` to manage and persist the application’s state.
+   - This ViewModel tracks key metrics like the user’s balance, total dice rolls, and frequency of sixes.
+   - By using `LiveData`, the ViewModel ensures real-time updates and retains data across configuration changes, such as screen rotations.
+
+3. **WalletActivity**:
+   - Integrated the ViewModel to handle user interactions and display updates.
+   - A toast notification was implemented to congratulate the user when a six is rolled, based on LiveData from the ViewModel.
+   - The UI was further enhanced to display win rates and statistics, ensuring a reliable user experience across configuration changes.
+
+## Testing
+
+Initially, we did not employ **Test-Driven Development (TDD)**, but it became valuable during debugging in the later stages of the project. We conducted extensive testing to ensure the app functioned as expected:
+- Verified that the app’s logic and UI worked seamlessly together, providing accurate results and clear error messages.
+- No crashes were detected during the testing phase.
+
+Additionally, throughout development, we used **ChatGPT** to clarify coding challenges and understand complex concepts. This assistance helped us solve problems confidently while maintaining originality in our solutions.  
+We also referred to resources such as:
+- [Activity Lifecycle](https://swaroopjoshi.in/courses/mobile-app-dev/07-activity-lifecycle/)
+- [StackOverflow](https://stackoverflow.com/)
+- [Android Developer Documentation](https://developer.android.com/)
+
+## Accessibility
+
+### TalkBack Experience:
+Using **TalkBack** revealed that while basic navigation was functional, some UI elements required better labeling:
+- The **die button** lacked a label, making it unclear for users relying on TalkBack.
+- The **roll statistics text** was too small, leading to missed information during navigation.
+
+### Accessibility Scanner Suggestions:
+1. The font of "Dice Games" in the toolbar was defined in **dp** but should be specified in **sp** (scaled pixels).
+2. Since there was no content description, all views displaying roll statistics showed integers, leading to duplicate descriptions when their initial values were zero.
+3. The scanner suggested increasing the text contrast for the die.
+4. The die had a fixed size with scalable text. It recommended enabling text expansion for better accessibility.
+
+## Time Taken
+Approximately **20 hours** were spent completing this assignment.
+
+## Pair Programming
+Extent of pair programming used: **5** (used thoroughly).
+
+## Difficulty Rating
+Assignment difficulty: **5/10**
