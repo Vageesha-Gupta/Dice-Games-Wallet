@@ -4,6 +4,12 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.junit.Before;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+import static org.mockito.Mockito.*;
+import static org.junit.Assert.*;
+
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -13,9 +19,13 @@ import org.junit.Before;
 public class WalletTest {
   private WalletViewModel viewModel;
 
+  @Mock
+  Die mockDie;
   @Before
   public void setUp() {
+    MockitoAnnotations.openMocks(this);
     viewModel = new WalletViewModel();
+    viewModel.die = mockDie;
   }
 
   @Test

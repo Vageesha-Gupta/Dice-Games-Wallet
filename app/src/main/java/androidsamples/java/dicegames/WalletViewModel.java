@@ -17,7 +17,7 @@ public class WalletViewModel extends ViewModel {
   private int numWins;
   private int numLoses;
   private int prevRoll;
-  private Die die;
+  Die die;
 
   public WalletViewModel() {
     mBal = 0;
