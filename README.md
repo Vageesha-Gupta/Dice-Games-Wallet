@@ -25,13 +25,11 @@ We also consulted the stackoverflow.com and developer.android.com whenever we fa
 
 ## Accessibility
 ### TalkBack Experience:
-Using **TalkBack** revealed that while basic navigation was functional, some UI elements required better labeling:
-- The **die button** lacked a label, making it unclear for users relying on TalkBack.
-- The **roll statistics text** was too small, leading to missed information during navigation.
+Using TalkBack revealed that while basic navigation was functional, some UI elements needed better labeling for clarity. Specifically, the die button lacked a label, making it difficult for users relying on TalkBack to understand its purpose. On tapping it, the value of dice is read aloud instead of the label- die. Additionally, the text displaying roll statistics was too small, causing it to be missed often during navigation. 
 
 ### Accessibility Scanner Suggestions:
 1. The font of "Dice Games" in the toolbar was defined in **dp** but should be specified in **sp** (scaled pixels).
-2. Since there was no content description, all views displaying roll statistics showed integers, leading to duplicate descriptions when their initial values were zero.
+2.Since there is no content description, all views displaying roll statistics show an integer. As the initial value is zero for all, the Accessibility Scanner flags that multiple items have the same description
 3. The scanner suggested increasing the text contrast for the die.
 4. The die had a fixed size with scalable text. It recommended enabling text expansion for better accessibility.
    
