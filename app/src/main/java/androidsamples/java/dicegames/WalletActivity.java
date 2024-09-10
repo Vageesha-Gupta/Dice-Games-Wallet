@@ -21,6 +21,8 @@ public class WalletActivity extends AppCompatActivity {
   private View mPrevRollLayout;
   private View mLayoutRolls;
   private View mLayoutDoubleSixes;
+  private TextView mTxtDblSixes;
+  private TextView mTxtDblOthers;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,8 @@ public class WalletActivity extends AppCompatActivity {
     mLayoutRolls = findViewById(R.id.layout_rolls);
     mLayoutDoubleSixes = findViewById(R.id.layout_double_sixes);
     mPrevRollLayout = findViewById(R.id.prev_roll_layout);
+    mTxtDblSixes=findViewById(R.id.txt_double_sixes);
+    mTxtDblOthers=findViewById(R.id.txt_double_others);
 
     // Update UI with the initial state from ViewModel
     updateUI();
@@ -76,11 +80,14 @@ public class WalletActivity extends AppCompatActivity {
     }
     if ((mWalletVM.doubleSixes() > 0 || mWalletVM.doubleOthers()>0) && mLayoutDoubleSixes.getVisibility() == View.GONE) {
       mLayoutDoubleSixes.setVisibility(View.VISIBLE);
+      mTxtDblSixes.setText(Integer.toString((mWalletVM.doubleSixes())));
+      mTxtDblOthers.setText(Integer.toString((mWalletVM.doubleOthers())));
     }
 
     // Ensure previous roll text visibility
-    if (balance!=0 && mPrevRollLayout.getVisibility() == View.GONE) {
+    if (mWalletVM.totalRolls()>1 && mWalletVM.previousRoll()!=-1 && mPrevRollLayout.getVisibility() == View.GONE) {
       mPrevRollLayout.setVisibility(View.VISIBLE);
+
     }
   }
 
